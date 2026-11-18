@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or documentation, please cite it as below."
+title: "Future Disclosure: Astronomy & Alien Planets"
+abstract: >-
+  An open science and education project describing fifteen testable places where
+  new discoveries about planets, moons, small bodies and interstellar objects may
+  be waiting in public astronomy data, with evidence levels, lessons for all ages,
+  and a tested Python package (fdastro) for orbit fitting, bound-orbit tests,
+  Tisserand screening, astrometry, transit, exomoon, obliquity and microlensing
+  calculations.
+authors:
+  - name: "Future Disclosure contributors"
+type: software
+repository-code: "https://github.com/utahisnotastate/ufwwaragainstearthsstars"
+url: "https://github.com/utahisnotastate/ufwwaragainstearthsstars"
+version: 0.1.0
+date-released: 2026-11-17
+license: MIT
+keywords:
+  - astronomy
+  - interstellar objects
+  - exoplanets
+  - orbit determination
+  - citizen science
+  - science education

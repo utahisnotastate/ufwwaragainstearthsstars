@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data downloads (keep large archive files out of git)
+data/raw/
+*.fits
+*.fits.gz
+itf.txt
+itf.txt.gz
+*.bsp
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
