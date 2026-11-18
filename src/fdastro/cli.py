@@ -100,7 +100,21 @@ def build_parser() -> argparse.ArgumentParser:
     return p
 
 
+def _make_output_safe() -> None:
+    """Never crash on names such as Kaʻepaokaʻawela when the terminal or pipe
+    uses a legacy encoding (e.g. cp1252 on Windows): unprintable characters
+    are replaced instead."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            try:
+                reconfigure(errors="replace")
+            except (ValueError, OSError):  # pragma: no cover - exotic streams
+                pass
+
+
 def main(argv: list[str] | None = None) -> int:
+    _make_output_safe()
     args = build_parser().parse_args(argv)
     return int(args.func(args))
 

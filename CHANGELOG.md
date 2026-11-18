@@ -2,6 +2,11 @@
 
 All notable changes to this project are recorded here. Corrections to facts are listed under **Corrected** so readers can see what changed.
 
+## [Unreleased]
+
+### Fixed
+- Command-line tool no longer crashes on Windows when output uses a legacy encoding (cp1252) and a name contains characters such as the ʻokina in Kaʻepaokaʻawela.
+
 ## [0.1.0] — 2026-11-17
 
 ### Added

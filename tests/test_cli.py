@@ -1,3 +1,6 @@
+import io
+import sys
+
 from fdastro.cli import main
 
 
@@ -16,3 +19,14 @@ def test_tisserand_command(capsys):
 
 def test_tisserand_missing_args():
     assert main(["tisserand"]) == 2
+
+
+def test_cli_survives_legacy_windows_encoding(monkeypatch):
+    # GitHub's Windows runners (and redirected output on Windows) use cp1252,
+    # which cannot encode the ʻokina in "Kaʻepaokaʻawela".
+    buffer = io.BytesIO()
+    legacy = io.TextIOWrapper(buffer, encoding="cp1252")
+    monkeypatch.setattr(sys, "stdout", legacy)
+    assert main(["tisserand", "--examples"]) == 0
+    legacy.flush()
+    assert b"2015 BZ509" in buffer.getvalue()
